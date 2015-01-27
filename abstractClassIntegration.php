@@ -110,7 +110,7 @@ abstract class Integration
 
         if($this->ourCampaignID > 0)
         {
-            $kampanya = $db->fetchRow("KENDi SQL inizi yazarsınız..", $this->ourCampaignID);
+            $kampanya = $db->fetchRow("Kendinize uygun SQL inizi yazarsınız..", $this->ourCampaignID);
             if(!$kampanya) {
                 $this->errorMessage = "Kampanya bulunamadı!";
                 return false;
@@ -123,7 +123,6 @@ abstract class Integration
 
     public function installProducts($modul = "")
     {
-        global $db, $config, $digerUlkeSistemler;
 
         if(!$this->products) {
             $this->errorMessage = "Ürünler alınamadı";
@@ -134,7 +133,6 @@ abstract class Integration
             $this->errorMessage = "Modül alınamadı";
             return false;
         }
-        flush();
 
         if($this->products) {
             //Burada döngü açar içinde  ne yapmak istiyorsanız yaparsınız. $eklenenUrunler de adet tutabilirsiniz..
@@ -144,7 +142,7 @@ abstract class Integration
         flush();
         return true;
     }
-    
+
     public function getWithCurl($url = "")
     {
         if(!filter_var($url, FILTER_VALIDATE_URL))
